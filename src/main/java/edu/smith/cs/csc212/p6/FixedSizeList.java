@@ -23,10 +23,11 @@ public class FixedSizeList<T> implements P6List<T> {
 		if (this.size() == 0) {
 			throw new EmptyListError();
 		}
-		fill--;
-		T value = this.getIndex(fill);
-		this.array[fill] = null;
+		T value = this.getIndex(fill - 1); //gets the value of last element
+		this.array[fill -1] = null; // sets last element to null
+		fill--; //updates fill aka size()
 		return value;
+		
 	}
 
 	@Override
